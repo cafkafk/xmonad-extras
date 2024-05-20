@@ -10,7 +10,7 @@
   with xmonad.lib;
   let
     hoverlay = final: prev: hself: hsuper: {
-      xmonad-extra = hself.callCabal2nix "xmonad-extra"
+      xmonad-extras = hself.callCabal2nix "xmonad-extras"
         (git-ignore-nix.lib.gitignoreSource ./.) { };
     };
     defComp = if builtins.pathExists ./comp.nix
@@ -39,10 +39,11 @@
   in
   rec {
     devShell = hpkg.shellFor (modifyDevShell pkgs {
-      packages = p: [ p.xmonad-extra ];
+      packages = p: [ p.xmonad-extras ];
       nativeBuildInputs = [ pkgs.cabal-install ];
     });
-    defaultPackage = hpkg.xmonad-extra;
+    defaultPackage = hpkg.xmonad-extras;
+    packages.default = hpkg.xmonad-extras;
     modernise = xmonad.modernise.${system};
   }) // { inherit hoverlay overlay overlays nixosModule nixosModules; } ;
 }
