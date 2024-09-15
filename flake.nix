@@ -1,10 +1,10 @@
 # This file is stolen from @IvanMalison and @LSLeary (github)
 {
   inputs = {
-    flake-utils.url = github:numtide/flake-utils;
-    git-ignore-nix.url = github:hercules-ci/gitignore.nix/master;
-    xmonad.url = github:xmonad/xmonad;
-    xmonad-contrib.url = github:xmonad/xmonad-contrib;
+    flake-utils.url = "github:numtide/flake-utils";
+    git-ignore-nix.url = "github:hercules-ci/gitignore.nix/master";
+    xmonad.url = "github:xmonad/xmonad";
+    xmonad-contrib.url = "github:xmonad/xmonad-contrib";
   };
   outputs = { self, flake-utils, nixpkgs, git-ignore-nix, xmonad, xmonad-contrib }:
   with xmonad.lib;
